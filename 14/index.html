@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * Функция загружает изображение по указанному URL и возвращает промис, который резолвится,
+       * если изображение успешно загружено или отклоняется в случае ошибки загрузки.
+       *
+       * @param {string} url - URL изображения для загрузки.
+       * @returns {Promise<HTMLImageElement>} Промис, который резолвится с объектом изображения (HTMLImageElement).
+       * @throws {Error} Если произошла ошибка при загрузке изображения.
+       */
+      function loadImage(url) {
+        // Создаем и возвращаем промис
+        return new Promise((resolve, reject) => {
+          // Создаем новый элемент изображения.
+          const image = document.createElement('img');
+
+          // Обработчик успешной загрузки изображения.
+          image.onload = () => {
+            // Резолвим промис, передаем image
+            resolve(image);
+          };
+
+          // Обработчик ошибки при загрузке изображения.
+          image.onerror = (error) => {
+            // Отклоняем промис.
+            reject(error);
+          };
+
+          // Присваимавем свойству src URL, переданный как аргумент функции.
+          image.src = url;
+        });
+      }
+
+      // Пример использования
+      const imageUrl =
+        'https://s9.travelask.ru/uploads/post/000/007/248/main_image/full-427a04dd6a858b88fbe867a359613ec3.jpg';
+
+      // Вызываем функцию, передаем URL
+      loadImage(imageUrl)
+        .then((image) => {
+          // Блок then выполнится после успешной загрузки изображения
+          console.log('Изображение загружено', image);
+          document.querySelector('body').insertAdjacentElement('afterbegin', image);
+        })
+        .catch((error) => {
+          // Ошибка загрузки изображения.
+          console.error('Ошибка загрузки изображения', error);
+        });
+    </script>
+  </body>
+</html>

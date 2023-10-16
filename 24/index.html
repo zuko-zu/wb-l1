@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      th,
+      td {
+        padding: 10px;
+        border: 1px solid #ccc;
+        text-align: left;
+      }
+
+      th {
+        cursor: pointer;
+        text-align: center;
+      }
+
+      button.sort-button {
+        margin: 5px;
+      }
+
+      button.active {
+        background-color: #c0c0c0;
+      }
+
+      #pagination {
+        margin: 40px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>Список контактов</title>
+      </head>
+      <body>
+        <div id="tableContainer">
+          <table>
+            <thead>
+              <tr>
+                <th data-column="fname">
+                  Имя
+                  <div class="button-wrapper">
+                    <button class="sort-button sort-button--asc">▲</button>
+                    <button class="sort-button sort-button--desc">▼</button>
+                  </div>
+                </th>
+                <th data-column="lname">
+                  Фамилия
+                  <div class="button-wrapper">
+                    <button class="sort-button sort-button--asc">▲</button>
+                    <button class="sort-button sort-button--desc">▼</button>
+                  </div>
+                </th>
+                <th data-column="tel">
+                  Телефон
+                  <div class="button-wrapper">
+                    <button class="sort-button sort-button--asc">▲</button>
+                    <button class="sort-button sort-button--desc">▼</button>
+                  </div>
+                </th>
+                <th data-column="address">
+                  Адрес
+                  <div class="button-wrapper">
+                    <button class="sort-button sort-button--asc">▲</button>
+                    <button class="sort-button sort-button--desc">▼</button>
+                  </div>
+                </th>
+                <th data-column="city">
+                  Город
+                  <div class="button-wrapper">
+                    <button class="sort-button sort-button--asc">▲</button>
+                    <button class="sort-button sort-button--desc">▼</button>
+                  </div>
+                </th>
+                <th data-column="state">
+                  Штат
+                  <div class="button-wrapper">
+                    <button class="sort-button sort-button--asc">▲</button>
+                    <button class="sort-button sort-button--desc">▼</button>
+                  </div>
+                </th>
+                <th data-column="zip">
+                  Почтовый индекс
+                  <div class="button-wrapper">
+                    <button class="sort-button sort-button--asc">▲</button>
+                    <button class="sort-button sort-button--desc">▼</button>
+                  </div>
+                </th>
+              </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+          </table>
+        </div>
+        <div id="pagination"></div>
+      </body>
+      <script src="index.js"></script>
+    </html>
+  </body>
+</html>

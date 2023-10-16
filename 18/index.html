@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * Функция определения максимального объем данных, который можно сохранить в localStorage браузера.
+       *
+       * @returns {number} Максимальный объем данных в байтах, который может быть записан в localStorage.
+       *   Если localStorage не доступен, возвращаем -1.
+       */
+      function estimateLocalStorageSpace() {
+        const storage = window.localStorage;
+        storage.clear();
+        const testKey = 'testKey';
+        let testData = '0';
+        const oneMegabyte = 1024 * 1024; // 1 мегабайт в байтах
+
+        while (true) {
+          storage.setItem(testKey, testData);
+
+          // Попытка добавить 1 мегабайт данных
+          try {
+            const megabyteData = '0'.repeat(oneMegabyte);
+            testData += megabyteData;
+            storage.setItem(testKey, testData);
+          } catch (e) {
+            testData = storage.getItem(testKey);
+            break; // Если вставка вызывает ошибку, перестаем увеличивать данные
+          }
+        }
+
+        return testData.length; // Оценка размера данных в байтах
+      }
+
+      // Пример использования функции:
+      const estimatedSpace = estimateLocalStorageSpace();
+      console.log('Приблизительно доступное место в localStorage: ' + estimatedSpace + ' байт');
+    </script>
+  </body>
+</html>

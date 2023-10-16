@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      .new-element {
+        background-color: aqua;
+        font-size: 20px;
+      }
+
+      button {
+        display: block;
+        margin-bottom: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <button>Получить сообщение</button>
+    </div>
+    <script>
+      /**
+       * Функция создает и добавляет элемент в DOM с указанным классом.
+       *
+       * @param {string} tagName - Название HTML-тега элемента.
+       * @param {string} className - Название CSS-класса для стилизации элемента.
+       * @param {string} parentSelector - Селектор родительского элемента, куда добавится созданный элемент.
+       */
+      function createAndAddElement(tagName, className, parentSelector, content = '') {
+        try {
+          // Проверяем, существует ли родительский элемент.
+          const parent = document.querySelector(parentSelector);
+          if (!parent) {
+            throw new Error(`Родительский элемент с селектором ${parentSelector} не найден.`);
+          }
+
+          // Создаем новый элемент, добавляем текстовый контент и класс
+          const element = document.createElement(tagName);
+          element.innerHTML = content;
+          element.classList.add(className);
+
+          // Добавляем элемент в родительский элемент
+          parent.appendChild(element);
+        } catch (error) {
+          console.error(error.message);
+        }
+      }
+
+      // Пример использования:
+      document.querySelector('button').addEventListener('click', () => {
+        createAndAddElement('b', 'new-element', '.container', 'Привет!');
+        createAndAddElement('p', 'new-element', '.container', 'Как дела?');
+        createAndAddElement('button', 'new-element', '.container');
+      });
+    </script>
+  </body>
+</html>

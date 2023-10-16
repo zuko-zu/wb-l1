@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      .vk-wiget {
+        overflow-x: hidden;
+        width: 520px;
+        height: 500px;
+        overflow-y: overlay;
+        background-color: #fff;
+        box-shadow: 0px 0px 5px 0px rgba(34, 80, 55, 0.2);
+        border-radius: 25px;
+        margin: 0 auto;
+        margin-top: 80px;
+        padding: 20px;
+      }
+
+      .vk-wiget__title {
+        text-align: center;
+      }
+    </style>
+    <script
+      type="text/javascript"
+      src="https://vk.com/js/api/openapi.js?168"
+    ></script>
+  </head>
+  <body>
+    <section class="vk-wiget">
+      <h1 class="vk-wiget__title">Список подкастов "Веб-стандарты"</h1>
+      <ol class="vk-wiget__post-list"></ol>
+    </section>
+    <script src="index.js"></script>
+  </body>
+</html>

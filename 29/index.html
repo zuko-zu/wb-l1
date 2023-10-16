@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <form method="post">
+      <h1>Форма оплаты</h1>
+      <p>
+        Поля, обязательные к заполнению <strong><span aria-label="required">*</span></strong
+        >.
+      </p>
+      <section>
+        <h2>Контактная информация</h2>
+        <p>
+          <label for="name">
+            <span>Имя: </span>
+            <strong><span aria-label="required">*</span></strong>
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="username"
+            required
+          />
+        </p>
+        <p>
+          <label for="mail">
+            <span>E-mail: </span>
+            <strong><span aria-label="required">*</span></strong>
+          </label>
+          <input
+            type="email"
+            id="mail"
+            name="usermail"
+            required
+          />
+        </p>
+      </section>
+      <section>
+        <h2>Данные для оплаты</h2>
+        <p>
+          <label for="card">
+            <span>Тип карты:</span>
+          </label>
+          <select
+            id="card"
+            name="usercard"
+          >
+            <option value="visa">Visa</option>
+            <option value="mc">Mastercard</option>
+            <option value="amex">Мир</option>
+          </select>
+        </p>
+        <p>
+          <label for="number">
+            <span>Номер карты:</span>
+            <strong><span aria-label="required">*</span></strong>
+          </label>
+          <input
+            type="tel"
+            id="number"
+            name="cardnumber"
+            required
+          />
+        </p>
+      </section>
+      <section>
+        <p><button type="submit">Отправить</button></p>
+      </section>
+    </form>
+    <script src="index.js"></script>
+  </body>
+</html>
